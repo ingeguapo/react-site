@@ -5,7 +5,7 @@ import './App.css';
 import { DISHES } from './shared/dishes';
 import { Component } from 'react';
 
-class App extends Component {
+class Main extends Component {
 
   constructor(props){
     super(props);
@@ -28,4 +28,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Main;

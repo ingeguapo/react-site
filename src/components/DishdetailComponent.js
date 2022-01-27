@@ -33,11 +33,9 @@ class DishDetail extends Component {
 
     renderComments(theDish){
         if (theDish != null){            
-            const commentList = theDish.comments.map((number) => {
-                var date = new Date(number.date);
-                var thisdate = date.toDateString();
-                return <li>{number.comment}<br/><p>--{number.author},&nbsp;{thisdate}</p></li> 
-           });           
+            const commentList = theDish.comments.map((number) => 
+                <li>{number.comment}<br/><p>--{number.author},&nbsp;{new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(number.date)))}</p></li> 
+           );           
 
             return(
                 <div className='col-12 col-md-5 m-1'>
