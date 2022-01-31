@@ -1,17 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Card, CardImg, CardImgOverlay, CardText, CardBody, CardTitle } from 'reactstrap';
 
-class DishDetail extends Component {
-    constructor(props) {
-        super(props);
-        /*this.state = {
-            selectedDish: null
-        };*/
-    }
 
-    renderDish(dish){
+    function RenderDish({dish}){
         if (dish != null){
-        console.log("adentro");
 
            return(
             
@@ -28,13 +20,13 @@ class DishDetail extends Component {
             );
         }
         else {
-            console.log(dish);
             return(<div></div>);
         }
     }
 
-    renderComments(theDish){
-        if (theDish != null){            
+    function RenderComments({theDish}){
+        if (theDish != null){    
+
             const commentList = theDish.comments.map((number) => 
                 <li>{number.comment}<br/><p>--{number.author},&nbsp;{new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(number.date)))}</p></li> 
            );           
@@ -49,19 +41,20 @@ class DishDetail extends Component {
             );
         }
         else {
+            //console.log(theDish);
              return(<div></div>);
          }
     }
 
-    render() {
-
+    const DishDetail = (props) => {
+        
         return (
             <div className="row">
-                {this.renderDish(this.props.dish)}
-                {this.renderComments(this.props.dish)}
+                <RenderDish dish={props.dish} />
+                <RenderComments theDish={props.dish} />
             </div>
         );
     }
-}
+
 
 export default DishDetail;
