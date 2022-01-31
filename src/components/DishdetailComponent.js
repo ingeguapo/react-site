@@ -41,7 +41,6 @@ import { Card, CardImg, CardImgOverlay, CardText, CardBody, CardTitle } from 're
             );
         }
         else {
-            //console.log(theDish);
              return(<div></div>);
          }
     }
