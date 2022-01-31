@@ -11,6 +11,7 @@ class DishDetail extends Component {
 
     renderDish(dish){
         if (dish != null){
+        console.log("adentro");
 
            return(
             
@@ -27,6 +28,7 @@ class DishDetail extends Component {
             );
         }
         else {
+            console.log(dish);
             return(<div></div>);
         }
     }
@@ -55,8 +57,8 @@ class DishDetail extends Component {
 
         return (
             <div className="row">
-                {this.renderDish(this.props.selectedDish)}
-                {this.renderComments(this.props.selectedDish)}
+                {this.renderDish(this.props.dish)}
+                {this.renderComments(this.props.dish)}
             </div>
         );
     }
